@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<title>CSS Template</title>
+<title>Package Details</title>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
@@ -19,7 +19,6 @@ body {
   margin: 0;
 }
 
-/* Style the header */
 header {
 background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),url("photos/gymnasium.jfif");
 border-radius:7px;
@@ -39,7 +38,6 @@ margin:10px;
   text-align: center;
 }
 
-/* Create two columns/boxes that floats next to each other */
 nav {
   float: left;
   padding: 20px;
@@ -50,7 +48,6 @@ nav {
   border-radius:7px;
 }
 
-/* Style the list inside the menu */
 nav ul {
   list-style-type: none;
   padding: 0;
@@ -83,15 +80,11 @@ article{
   margin :20px 150px; 
 }
 
-
-/* Clear floats after the columns */
 section::after {
   content: "";
   display: table;
-  clear: both;
 }
 
-/* Style the footer */
 .footer {
   background-color: #202020;
   width: 100%;
@@ -103,7 +96,6 @@ section::after {
   display: block;
 }
 
-/* Responsive layout - makes the two columns/boxes stack on top of each other instead of next to each other, on small screens */
 @media (max-width: 600px) {
   nav, article {
     width: 100%;
@@ -138,7 +130,7 @@ section::after {
   <div class="card-body">
     <h5 class="card-title"><b>Monthly Plan</b></h5>
     <p class="card-text">4 Spa session, 6 Yoga sessions, 20 Weight training sessions, 12 Cardio sessions</p>
-    <a href="/gym/registration.php" class="btn btn-primary">Take Membership</a>
+    <a href="/registration.php" class="btn btn-primary">Take Membership</a>
   </div>
   <div class="card-footer text-muted">
     <strong>1500/-</strong>
@@ -152,7 +144,7 @@ section::after {
   <div class="card-body">
     <h5 class="card-title"><b>6 Months Plan</b></h5>
     <p class="card-text">4 Spa session, 6 Yoga sessions, 20 Weight training sessions, 12 Cardio sessions a month<p>(Discount: 2000/-)</p></p>
-    <a href="/gym/registration.php" class="btn btn-primary">Take Membership</a>
+    <a href="/registration.php" class="btn btn-primary">Take Membership</a>
   </div>
   <div class="card-footer text-muted">
     <strong>7000/-</strong>
@@ -166,7 +158,7 @@ section::after {
   <div class="card-body">
     <h5 class="card-title"><b>Yearly Plan</b></h5>
     <p class="card-text">4 Spa session, 6 Yoga sessions, 20 Weight training sessions, 12 Cardio sessions a month<p>(Discount: 6000/-)</p></p>
-    <a href="/gym/registration.php" class="btn btn-primary">Take Membership</a>
+    <a href="/registration.php" class="btn btn-primary">Take Membership</a>
   </div>
   <div class="card-footer text-muted">
     <strong>12000/-</strong>

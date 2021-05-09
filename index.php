@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<title>CSS Template</title>
+<title>Gymnasium</title>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
@@ -18,11 +18,9 @@ body {
   height: 100%;
   margin: 0;
 }
-
-/* Style the header */
 header {
 
-  background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),url("photos/gymnasium.jfif");
+  background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),url("/photos/gymnasium.jfif");
   border-radius:7px;
   background-repeat: no-repeat;
   background-size: cover;
@@ -93,7 +91,6 @@ section::after {
   display: block;
 }
 
-/* Responsive layout - makes the two columns/boxes stack on top of each other instead of next to each other, on small screens */
 @media (max-width: 600px) {
   nav, article {
     width: 100%;
@@ -124,7 +121,7 @@ section::after {
   <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
   <div class="carousel-inner">
     <div class="carousel-item active">
-      <img src="photos/C6.jfif" width="100%" height="400px" class="d-block w-100" alt="...">
+      <img src="photos/c6.jfif" width="100%" height="400px" class="d-block w-100" alt="...">
     </div>
     <div class="carousel-item">
       <img src="photos/c4.jfif"  width="100%" height="400px" class="d-block w-100" alt="...">
@@ -173,7 +170,6 @@ section::after {
     <div>
         <p><img src="https://img.icons8.com/doodle/48/000000/facebook-new.png" /><img src="https://img.icons8.com/doodle/48/000000/instagram-new.png" /><img src="https://img.icons8.com/doodle/48/000000/twitter--v1.png" /><img src="https://img.icons8.com/doodle/48/000000/linkedin.png" /></p>
     </div>
-    <p >Powered By .......</p>
     <p>2020 Copyright (C) All rights reserved </p>
 </footer>
 

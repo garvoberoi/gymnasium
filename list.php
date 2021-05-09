@@ -7,13 +7,12 @@
   $delete = false;
   $update = false;
   $servername = "localhost";
-  $username = "root";
-  $password = "";
-  $database = "members";
+  $username = "id16770052_gymnasium";
+$password = "\&sCzsKY2m0~If4B";
+$database = "id16770052_gym";
   
-  // Create connection
   $conn = mysqli_connect($servername, $username, $password, $database);
-  // Check connection
+
   if (!$conn) {
       die("Connection failed: " . mysqli_connect_error());
   }
@@ -50,7 +49,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<title>CSS Template</title>
+<title>Administration</title>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
@@ -68,7 +67,6 @@ body {
   margin: 0;
 }
 
-/* Style the header */
 header {
   background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),url("photos/gymnasium.jfif");
   border-radius:7px;
@@ -87,7 +85,6 @@ header {
   text-align: center;
 }
 
-/* Create two columns/boxes that floats next to each other */
 nav {
   float: left;
   padding: 20px;
@@ -98,14 +95,13 @@ nav {
   border-radius:7px;
 }
 
-/* Style the list inside the menu */
 nav ul {
   list-style-type: none;
   padding: 0;
 }
 
 nav button {
-  background-color:  #01003b; /* Green */
+  background-color:  #01003b; 
   border: none;
   color: white;
   padding: 15px ;
@@ -126,7 +122,6 @@ input[type=submit] {
   cursor: pointer;
 }
 
-/* When moving the mouse over the submit button, add a darker green color */
 input[type=submit]:hover {
   background-color: #45a049;
 }
@@ -157,14 +152,12 @@ th {
   color: white;
 }
 
-/* Clear floats after the columns */
 section::after {
   content: "";
   display: table;
 }
 
-/* Style the footer */
-footer {
+.footer {
   background-color: #202020;
   width: 100%;
   height: auto;       
@@ -175,7 +168,6 @@ footer {
   display: block;
 }
 
-/* Responsive layout - makes the two columns/boxes stack on top of each other instead of next to each other, on small screens */
 @media (max-width: 600px) {
   nav, article {
     width: 100%;
@@ -195,7 +187,7 @@ footer {
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-      <form action="/gym/list.php" method="post">
+      <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post">
       <input type="hidden" name="sno" id="sno">
       <label for="Fee">Fees</label>
     <select id="Fee" name="Fee">
@@ -242,9 +234,8 @@ footer {
   </nav>
   
   <article>
-    <h1 style="text-align:center; font-family:'Goblin One', cursive; margin-top:20px;">Members List</h1>
+    <h1 style="text-align:center; font-family:'Goblin One', cursive; margin-top:20px;">Administration</h1>
     <a href="logout.php" style="float: right; margin-top: -55px; margin-bottom:40px; padding: 5px;"><button class="btn btn-dark">Logout</button></a>
-    
     <table>
   <tr>
     <th>Sno.</th>
@@ -262,10 +253,12 @@ footer {
   $result = mysqli_query($conn, $sql);
   $num = mysqli_num_rows($result);
   if($num>0){
+    $sno1 = 1;
     while($row = mysqli_fetch_assoc($result)){
+      
   ?>
    <tr>
-    <td><?= $row['Sno'] ?></td>
+    <td><?= $sno1 ?></td>
     <td><?= $row['fname'] ?></td>
     <td><?= $row['lname'] ?></td>
     <td><?= $row['number'] ?></td>
@@ -275,6 +268,7 @@ footer {
     <td><button class='delete btn btn-sm btn-danger' id="d<?= $row['Sno'] ?>">Delete</button></td>
   </tr>
   <?php
+    $sno1= $sno1+1;
     }
   }
   ?>
@@ -302,13 +296,7 @@ footer {
   edits = document.getElementsByClassName('edit');
   Array.from(edits).forEach((element)=>{
     element.addEventListener("click",(e)=>{
-      console.log("edit", e);
-      tr = e.target.parentNode.parentNode;
-      Fee = tr.getElementsByTagName("td")[6].innerText;
-      console.log(Fee);
-      Fee.value = Fee;
       sno.value = e.target.id;
-      console.log(e.target.id);
       $('#editmodal').modal('toggle');
       
     })
@@ -322,7 +310,7 @@ footer {
       sno = e.target.id.substr(1,)
         if(confirm("Are you sure you want to delete?")){
             console.log("yes");
-            window.location = `/gym/list.php?delete=${sno}`;
+            window.location = `list.php?delete=${sno}`;
         }
         else{
           console.log("no");

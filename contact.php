@@ -3,20 +3,26 @@ $submit = false;
 $name = $email = $msg = "";
 if($_SERVER['REQUEST_METHOD']=='POST'){
     
-    $name = $_POST["name"];
-    $email= $_POST["email"];
-    $msg = $_POST["msg"];
+    $name = test_input($_POST["name"]);
+    $email= test_input($_POST["email"]);
+    $msg = test_input($_POST["msg"]);
       
 }
 
-$servername = "localhost";
-$username = "root";
-$password = "";
-$database = "members";
+function test_input($data) {
+  $data = trim($data);
+  $data = stripslashes($data);
+  $data = htmlspecialchars($data);
+  return $data;
+}
 
-// Create connection
+$servername = "localhost";
+$username = "id16770052_gymnasium";
+$password = "\&sCzsKY2m0~If4B";
+$database = "id16770052_gym";
+
 $conn = mysqli_connect($servername, $username, $password, $database);
-// Check connection
+
 if (!$conn) {
     die("Connection failed: " . mysqli_connect_error());
 }else{
@@ -36,7 +42,7 @@ if (!$conn) {
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<title>CSS Template</title>
+<title>Contact Us</title>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
@@ -54,7 +60,6 @@ body {
   margin: 0;
 }
 
-/* Style the header */
 header {
 
 background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),url("photos/gymnasium.jfif");
@@ -73,7 +78,7 @@ margin:10px;
   padding: 70px 50px 30px 50px;
   text-align: center;
 }
-/* Create two columns/boxes that floats next to each other */
+
 nav {
   float: left;
   padding: 20px;
@@ -84,7 +89,7 @@ nav {
   border-radius:7px;
 }
 
-/* Style the list inside the menu */
+
 nav ul {
   list-style-type: none;
   padding: 0;
@@ -112,19 +117,17 @@ article{
   margin:10px;
 }
 
-/* Style inputs with type="text", select elements and textareas */
 input[type=text], textarea {
-  width: 100%; /* Full width */
-  padding: 12px; /* Some padding */ 
-  border: 1px solid #ccc; /* Gray border */
-  border-radius: 4px; /* Rounded borders */
-  box-sizing: border-box; /* Make sure that padding and width stays in place */
-  margin-top: 6px; /* Add a top margin */
-  margin-bottom: 16px; /* Bottom margin */
-  resize: vertical /* Allow the user to vertically resize the textarea (not horizontally) */
+  width: 100%; 
+  padding: 12px; 
+  border: 1px solid #ccc; 
+  border-radius: 4px; 
+  box-sizing: border-box;
+  margin-top: 6px;
+  margin-bottom: 16px; 
+  resize: vertical;
 }
 
-/* Style the submit button with a specific background color etc */
 input[type=submit] {
   background-color: #04AA6D;
   color: white;
@@ -134,12 +137,10 @@ input[type=submit] {
   cursor: pointer;
 }
 
-/* When moving the mouse over the submit button, add a darker green color */
 input[type=submit]:hover {
   background-color: #45a049;
 }
 
-/* Add a background color and some padding around the form */
 .container {
   border-radius: 5px;
   background-color: #f2f2f2;
@@ -148,14 +149,11 @@ input[type=submit]:hover {
   margin: 20px 150px;
 }
 
-/* Clear floats after the columns */
 section::after {
   content: "";
   display: table;
-  clear: both;
 }
 
-/* Style the footer */
 .footer {
   background-color: #202020;
   width: 100%;
@@ -167,7 +165,6 @@ section::after {
   display: block;
 }
 
-/* Responsive layout - makes the two columns/boxes stack on top of each other instead of next to each other, on small screens */
 @media (max-width: 600px) {
   nav, article {
     width: 100%;

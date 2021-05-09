@@ -7,28 +7,25 @@ if($_SERVER['REQUEST_METHOD']=='POST'){
     $pass= md5($_POST["password"]);
 
     $servername = "localhost";
-    $username = "root";
-    $password = "";
-    $database = "members";
+    $username = "id16770052_gymnasium";
+    $password = "\&sCzsKY2m0~If4B";
+    $database = "id16770052_gym";
 
-    // Create connection
     $conn = mysqli_connect($servername, $username, $password, $database);
-    // Check connection
+  
     if (!$conn) {
         die("Connection failed: " . mysqli_connect_error());
     }else{
         
             $sql = "SELECT * from users where username='$user' AND password='$pass'";
-            //echo "hello $user";
             $result = mysqli_query($conn, $sql);
             $num = mysqli_num_rows($result);
             if($num == 1){
                 $login = true;
-                echo "locgged in";
                 session_start();
                 $_SESSION['loggedin'] = true;
                 $_SESSION['username'] = $user;
-                header("location: list.php");
+                header("location: /list.php");
             } else{
                 $showErr = true;
             }
@@ -36,18 +33,13 @@ if($_SERVER['REQUEST_METHOD']=='POST'){
     }
       
 }
-
-
 ?>
 
 <!doctype html>
 <html lang="en">
   <head>
-    <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-wEmeIV1mKuiNpC+IOBjI7aAzPcEZeedi5yW5f2yOq55WWLwNGmvvx4Um1vskeMj0" crossorigin="anonymous">
     <link rel="preconnect" href="https://fonts.gstatic.com">
 <link href="https://fonts.googleapis.com/css2?family=Goblin+One&display=swap" rel="stylesheet"><style>
@@ -82,7 +74,6 @@ input[type=submit] {
   margin:20px;
 }
 
-/* When moving the mouse over the submit button, add a darker green color */
 input[type=submit]:hover {
   background-color: #45a049;
 }
@@ -99,7 +90,7 @@ input[type=submit]:hover {
 ?>
   <div class="container">
   <h1 style="text-align:center; font-family:'Goblin One', cursive; margin-top:20px;">Log In</h1> 
-    <form action="/gym/login.php" method="post">
+    <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post">
   <div class="mb-3">
     <label for="username" class="form-label">Username</label>
     <input type="text" class="form-control" id="username" name="username" placeholder="username">
@@ -113,14 +104,6 @@ input[type=submit]:hover {
 </div>
 
   </body>
-   <!-- Optional JavaScript; choose one of the two! -->
 
-    <!-- Option 1: Bootstrap Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-p34f1UUtsS3wqzfto5wAAmdvj+osOnFyQFpp4Ua3gs/ZVWx6oOypYoCJhGGScy+8" crossorigin="anonymous"></script>
-
-    <!-- Option 2: Separate Popper and Bootstrap JS -->
-    <!--
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.min.js" integrity="sha384-lpyLfhYuitXl2zRZ5Bn2fqnhNAKOAaM/0Kr9laMspuaMiZfGmfwRNFh8HlMy49eQ" crossorigin="anonymous"></script>
-    -->
 </html>
